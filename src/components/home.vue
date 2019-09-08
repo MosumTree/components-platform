@@ -28,21 +28,43 @@
         </div>
       </div>
     </el-header>
-    <el-main>Main</el-main>
-    <el-footer height="80px">Footer</el-footer>
+    <el-main>
+      <div class="header-layer">
+        <div class="header-layer-wrapper">
+          <componentList :lists="lists"></componentList>
+        </div>
+        <div class="header-layer-wrapper">
+          <div class="layer-introduction">
+            <h1 class="layer-large-title">Portal Components</h1>
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567968360274&di=8807e4be87bd9e1fb880a52ab0a72cf3&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F17cbe44aa195ee71a14aeb7656586bc0823af1782b0fa-Lp8LxM_fw658"/>
+          </div>
+        </div>
+      </div>
+    </el-main>
+    <!-- <el-footer height="80px">Footer</el-footer> -->
   </el-container>
 </template>
 
 <script>
+import componentList from './componentsList';
 export default {
   name: "Home",
+  components:{componentList},
   data() {
     return {
-      input3: "",
-      input4: "",
       input5: "",
-      select: ""
+      select: "",
+      lists:[]
     };
+  },
+  beforeMount() {
+      this.lists = [{
+          componentsGroupName: 'TinyMobile',
+          componentsGroupLink: 'hi,'
+      }, {
+          componentsGroupName: 'PortalUI',
+          componentsGroupLink: 'hi,'
+      }];
   },
   methods: {
     handleSelect(key, keyPath) {
@@ -75,8 +97,7 @@ export default {
   color: #333;
   text-align: center;
   height: 179vw;
-  line-height: 100%;
-  background-color: #f9fafc;
+  background-color: rgba(232,217,217,.3);
   /* background: url('../assets/bg.jpeg') 100% 100%; */
 }
 
@@ -132,5 +153,21 @@ body > .el-container {
 .el-input-group__append, .el-input-group__prepend {
     background-color: #fb3e44;
     color: #fff;
+}
+
+.el-main{
+  padding: 0;
+}
+
+.layer-introduction{
+  width: 100%;
+  height: 1000px;
+  margin-top: 50px;
+  background: #fff;
+}
+.layer-large-title{
+  padding: 20px 0;
+  font-size: 50px;
+  font-family: 'Open Sans', sans-serif;
 }
 </style>
