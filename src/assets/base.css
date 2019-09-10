@@ -31,7 +31,7 @@ input,img{
 a,a:active,a:visited{
     /*下划线和颜色*/
     text-decoration: none;
-    color: #ccc;
+    /* color: #ccc; */
 }
  
 a:hover{

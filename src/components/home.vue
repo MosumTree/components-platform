@@ -84,14 +84,9 @@ export default {
   color: #333;
   text-align: center;
   padding: 0;
+  z-index: 99;
 }
 
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
 
 .el-main {
   color: #333;
@@ -168,6 +163,6 @@ body > .el-container {
 .layer-large-title{
   padding: 20px 0;
   font-size: 50px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
 }
 </style>
