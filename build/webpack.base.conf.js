@@ -46,6 +46,15 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
+      // { test: /\.md$/, use: [ { loader: 'markdown-loader', options: {} } ] },
+      {
+        test: /.md$/,
+        loader: 'text-loader'
+      },
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
+      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
