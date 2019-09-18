@@ -54,10 +54,14 @@
 
 <script>
 import componentList from "./componentsList";
-import testMarkdown from "./../assets/FastBuild.md";
+import testMarkdown from "./../assets/lazyload.md";
+let emojify = require("emojify.js");
 let marked = require("marked");
 let hljs = require("highlight.js");
-import "highlight.js/styles/default.css";
+import "highlight.js/styles/monokai.css";
+import "emojify.js/dist/css/data-uri/emojify.min.css";
+emojify.setConfig({tag_type : 'div'});
+emojify.run();
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -95,10 +99,11 @@ export default {
   computed: {
     compiledMarkdown() {
       let detail = testMarkdown;
-      console.log(detail);
-      return marked(detail || "", {
+      console.log(emojify);
+      let markedText = marked(detail || "", {
         sanitize: true
-      });
+      })
+      return emojify.replace(markedText);
     }
   }
 };
@@ -127,7 +132,6 @@ export default {
 
 .el-main {
   color: #333;
-  text-align: center;
 }
 
 body > .el-container {
@@ -211,7 +215,7 @@ body > .el-container {
   padding: 50px;
 }
 .components-intro-content-container {
-
+  text-align: left;
   code[class*="language-"],
   pre[class*="language-"] {
     color: #ccc;
@@ -484,10 +488,15 @@ body > .el-container {
   }
   blockquote {
     font-size: 1.2rem;
-    color: #999;
+    color: #2c3e50;
     border-left: 0.25rem solid #dfe2e5;
     margin-left: 0;
-    padding-left: 1rem;
+    padding: 1rem;
+    background-color: #f3f5f7;
+    border-color: #42b983;
+    p + p {
+      margin-top: 1rem;
+    }
   }
   ol,
   ul {
@@ -660,6 +669,12 @@ body > .el-container {
   }
   .example_Ta9ygTaK {
     color: #41b883;
+  }
+  .emoji{
+    display: inline-block;
+    min-width: 20px;
+    min-height: 20px;
+    background-size: cover;
   }
 }
 </style>

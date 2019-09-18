@@ -73,7 +73,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .el-container {
   height: 100%;
   width: 100%;
@@ -92,7 +92,7 @@ export default {
   color: #333;
   text-align: center;
   height: 179vw;
-  background-color: rgba(232,217,217,.3);
+  /* background-color: rgba(232,217,217,.3); */
   /* background: url('../assets/bg.jpeg') 100% 100%; */
 }
 
