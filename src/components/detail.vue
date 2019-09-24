@@ -26,7 +26,7 @@
     </el-aside>
     <el-container>
       <el-header height="auto">
-        <div class="header-layer">
+        <div class="header-layer top-header">
           <div class="header-layer-wrapper">
             <i class="el-icon-menu"></i>
             <p class="header-title">Neoteric Plumbing Mishap</p>
@@ -108,7 +108,7 @@ export default {
   }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .el-container {
   height: 100%;
   width: 100%;
@@ -160,18 +160,27 @@ body > .el-container {
 .header-layer + .header-layer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-
+.top-header{
+  .el-icon-menu,.header-title {
+  color: #42b983;
+}
+.header-navigation {
+  li {
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  li:hover {
+    color: #42b983;
+  }
+}
+}
 .header-title {
   padding: 0 50px;
   text-align: left;
   flex: 1;
 }
-.header-navigation {
-}
-.header-navigation > li {
-  float: left;
-  margin-left: 20px;
-}
+
 
 .el-select .el-input {
   width: 130px;
@@ -204,7 +213,7 @@ body > .el-container {
 }
 .aside-title {
   padding: 20px 0;
-  background: #409eff;
+  background: #42b983;
   color: #fff;
 }
 .el-menu {

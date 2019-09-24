@@ -4,8 +4,9 @@
       <li v-for="(list, index) in getLists" :key="index">
         <router-link :to="{ path: '/detail', params: { userId: 123 }}">
           <a class="components-link">
-            <p>{{list.componentsGroupName}}</p>
-            <i class="el-icon-star-on"></i>
+            <i class="components-link-icon"></i>
+            <p class="components-link-title">{{list.componentsGroupName}}</p>
+            <p class="components-link-desc">{{list.componentsGroupDesc}}</p>
           </a>
         </router-link>
       </li>
@@ -25,21 +26,36 @@ export default {
   mounted() {
     this.getLists.push({
       componentsGroupName: "TinyUI",
-      componentsGroupLink: "hi,"
+      componentsGroupLink: "hi,",
+      componentsGroupDesc: "peret sdfasdf sdgas iohi onasefj a aodigguaeee awetf"
     });
   }
 };
 </script>
-<style scoped>
+<style lang="less">
 .list-wrapper {
   width: 100%;
-  height: 100px;
   /* background: rgb(243, 234, 234); */
 }
 .list-content {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.components-link-icon{
+  width: 100px;
+  height: 100px;
+  background: url("../assets/pc.png");
+  background-size: 100% 100%;
+}
+.components-link-icon::after{
+  content: '';
+    position: absolute;
+    top: 120px;
+    width: 0;
+    height: 38px;
+    // border-left: 1px dashed #42b983;
+    border-right: 2px dashed #42b983;
 }
 .list-content li {
   flex: 1;
@@ -56,24 +72,30 @@ export default {
 .components-link {
   display: inline-block;
   cursor: pointer;
+
+}
+  .components-link-desc{
+    font-size: 12px;
+  }
+  .components-link-title{
+    font-size: 20px;
+  }
+  .components-link i {
+    color: #333;
+  font-size: 50px;
 }
 .components-link:hover p {
-  color: #f56c6c;
+  color: #42b983;
 }
 .components-link:hover i {
   font-size: 50px;
+  color: #42b983;
 }
 .list-content li p {
-  font-size: 20px;
   padding: 10px 0;
   font-family: "Do Hyeon", sans-serif;
   color: #000;
   transition: 0.2s all;
-}
-.list-content li p {
-  font-size: 20px;
-  padding: 10px 0;
-  font-family: "Do Hyeon", sans-serif;
 }
 .list-content li i {
   display: inline-block;
@@ -82,6 +104,7 @@ export default {
   height: 50px;
   font-size: 40px;
   border-radius: 5px;
+  margin-bottom: 50px;
   transition: 0.2s all;
 }
 </style>
